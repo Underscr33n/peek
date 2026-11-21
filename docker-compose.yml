@@ -1,0 +1,9 @@
+services:
+  peek:
+    build: .
+    restart: unless-stopped
+    ports: ["80:3000"]
+    environment:
+      PASSWORD: ${PASSWORD:?mets PASSWORD=... dans .env}
+    volumes:
+      - ./data:/data   # peek.db + images/ : c'est tout ce qu'il faut sauvegarder
